@@ -45,7 +45,6 @@
 <p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal">Join AutoAr to streamline approvals and automate your workflow.</p>
 </div>
 <div class="bg-white dark:bg-background-dark/50 rounded-xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-800">
-<div class="flex">
 
 <div class="flex h-10 flex-1 items-center justify-center rounded-lg bg-[#e7ebf3] dark:bg-gray-800 p-1 mb-6">
 <a class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden 
@@ -62,7 +61,6 @@ dark:hover:text-white" href="employer-signin.html">
 </a>
 </div>
 
-</div>
 <form class="space-y-6">
 <div class="space-y-4">
 <div class="flex flex-col sm:flex-row gap-4">
@@ -91,7 +89,7 @@ dark:hover:text-white" href="employer-signin.html">
 <div class="text-gray-400 dark:text-gray-500 pointer-events-none absolute inset-y-0 left-0 flex items-center justify-center pl-4">
 <span class="material-symbols-outlined text-xl">mail</span>
 </div>
-<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d121b] dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-gray-800 focus:border-primary h-12 placeholder:text-gray-400 dark:placeholder:text-gray-500 pl-12 pr-4 text-base font-normal leading-normal" placeholder="you@youremail.com" type="email" value=""/>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d121b] dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-gray-800 focus:border-primary h-12 placeholder:text-gray-400 dark:placeholder:text-gray-500 pl-12 pr-4 text-base font-normal leading-normal" placeholder="you@yourcompany.com" type="email" value=""/>
 </div>
 </label>
 <label class="flex flex-col flex-1">
@@ -103,30 +101,36 @@ dark:hover:text-white" href="employer-signin.html">
 <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d121b] dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-gray-800 focus:border-primary h-12 placeholder:text-gray-400 dark:placeholder:text-gray-500 pl-12 pr-4 text-base font-normal leading-normal" placeholder="e.g. Apple, Google" type="text" value=""/>
 </div>
 </label>
-<label class="flex flex-col flex-1">
+
+<div class="flex flex-col flex-1" x-data="{ showPassword: false }">
+<label>
 <p class="text-[#0d121b] dark:text-gray-200 text-sm font-medium leading-normal pb-2">Create Password</p>
 <div class="relative flex w-full flex-1 items-stretch">
 <div class="text-gray-400 dark:text-gray-500 pointer-events-none absolute inset-y-0 left-0 flex items-center justify-center pl-4">
 <span class="material-symbols-outlined text-xl">lock</span>
 </div>
-<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d121b] dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-gray-800 focus:border-primary h-12 placeholder:text-gray-400 dark:placeholder:text-gray-500 pl-12 pr-12 text-base font-normal leading-normal" placeholder="Enter a strong password" type="password" value=""/>
-<button class="text-gray-400 dark:text-gray-500 absolute inset-y-0 right-0 flex cursor-pointer items-center justify-center pr-4" type="button">
-<span class="material-symbols-outlined text-xl">visibility</span>
+<input :type="showPassword ? 'text' : 'password'" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d121b] dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-gray-800 focus:border-primary h-12 placeholder:text-gray-400 dark:placeholder:text-gray-500 pl-12 pr-12 text-base font-normal leading-normal" placeholder="Enter a strong password" value=""/>
+<button @click="showPassword = !showPassword" class="text-gray-400 dark:text-gray-500 absolute inset-y-0 right-0 flex cursor-pointer items-center justify-center pr-4" type="button">
+<span class="material-symbols-outlined text-xl" x-text="showPassword ? 'visibility_off' : 'visibility'"></span>
 </button>
 </div>
 </label>
-<label class="flex flex-col flex-1">
+</div>
+<div class="flex flex-col flex-1" x-data="{ showPassword: false }">
+<label>
 <p class="text-[#0d121b] dark:text-gray-200 text-sm font-medium leading-normal pb-2">Confirm Password</p>
 <div class="relative flex w-full flex-1 items-stretch">
 <div class="text-gray-400 dark:text-gray-500 pointer-events-none absolute inset-y-0 left-0 flex items-center justify-center pl-4">
 <span class="material-symbols-outlined text-xl">lock</span>
 </div>
-<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d121b] dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-gray-800 focus:border-primary h-12 placeholder:text-gray-400 dark:placeholder:text-gray-500 pl-12 pr-12 text-base font-normal leading-normal" placeholder="Confirm your password" type="password" value=""/>
-<button class="text-gray-400 dark:text-gray-500 absolute inset-y-0 right-0 flex cursor-pointer items-center justify-center pr-4" type="button">
-<span class="material-symbols-outlined text-xl">visibility_off</span>
+<input :type="showPassword ? 'text' : 'password'" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d121b] dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-gray-800 focus:border-primary h-12 placeholder:text-gray-400 dark:placeholder:text-gray-500 pl-12 pr-12 text-base font-normal leading-normal" placeholder="Confirm your password" value=""/>
+<button @click="showPassword = !showPassword" class="text-gray-400 dark:text-gray-500 absolute inset-y-0 right-0 flex cursor-pointer items-center justify-center pr-4" type="button">
+<span class="material-symbols-outlined text-xl" x-text="showPassword ? 'visibility_off' : 'visibility'"></span>
 </button>
 </div>
 </label>
+</div>
+
 </div>
 <button class="group relative flex w-full justify-center rounded-lg bg-primary py-3 px-4 text-sm font-semibold text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark transition-colors" type="submit"> Create Account </button>
 <div class="text-center text-sm text-gray-500 dark:text-gray-400 pt-2"> Already have an account? Click the Sign In button above. </div>
@@ -141,4 +145,5 @@ dark:hover:text-white" href="employer-signin.html">
 </footer>
 </div>
 </div>
+<script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body></html>
