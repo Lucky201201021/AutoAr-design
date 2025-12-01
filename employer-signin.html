@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Employee Authentication - AutoAr</title>
+<title>Employer Sign In Page - AutoAr</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
@@ -38,29 +37,45 @@
 <body class="font-display bg-background-light dark:bg-background-dark text-[#0d121b] dark:text-gray-200">
 <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
-<header class="hidden">
-<div class="flex items-center gap-3 text-[#0d121b] dark:text-white">
-<div class="size-6 text-primary">
 
-</header>
 <main class="flex flex-1 items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
 <div class="w-full max-w-md space-y-8">
 <div class="flex flex-col gap-3 text-center">
-<p class="text-[#0d121b] dark:text-white text-3xl sm:text-4xl font-black leading-tight tracking-[-0.033em]">Welcome to the AutoAr Employee Portal</p>
+<p class="text-[#0d121b] dark:text-white text-3xl sm:text-4xl font-black leading-tight tracking-[-0.033em]">Welcome to the AutoAr Employer Portal</p>
 <p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal">Streamline approvals and automate your workflow.</p>
 </div>
+
 <div class="bg-white dark:bg-background-dark/50 rounded-xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-800">
+
 <div class="flex">
-<div class="flex h-10 flex-1 items-center justify-center rounded-lg bg-[#e7ebf3] dark:bg-gray-800 p-1 mb-6">
-<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-[0_1px_3px_rgba(0,0,0,0.1)] has-[:checked]:text-[#0d121b] dark:has-[:checked]:text-white text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal transition-all">
-<span class="truncate">Sign In</span>
-<input checked="" class="invisible w-0" name="auth-toggle" type="radio" value="Sign In"/>
-</label>
-<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-gray-700 has-[:checked]:shadow-[0_1px_3px_rgba(0,0,0,0.1)] has-[:checked]:text-[#0d121b] dark:has-[:checked]:text-white text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal transition-all">
+<div class="flex h-10 flex-1 
+items-center 
+justify-center 
+rounded-lg bg-[#e7ebf3] dark:bg-gray-800 p-1 mb-6">
+
+<a href="employer-signin.html" class="flex cursor-pointer 
+  h-full grow items-center justify-center 
+  overflow-hidden rounded-lg px-2  
+  text-gray-500 dark:text-gray-400 text-sm 
+  font-medium leading-normal transition-all
+  hover:bg-white dark:hover:bg-gray-700
+  hover:text-[#0d121b] dark:hover:text-white">
+    <span class="truncate">Sign In</span>
+  </a>
+
+<a href="employer-register.html" class="flex cursor-pointer 
+h-full grow items-center 
+justify-center overflow-hidden 
+rounded-lg px-2 hover:bg-white 
+dark:hover:bg-gray-700/60 text-gray-500 
+dark:text-gray-400 hover:text-[#0d121b] 
+dark:hover:text-bg-white  text-sm font-medium leading-normal 
+transition-all">
 <span class="truncate">Register</span>
-<input class="invisible w-0" name="auth-toggle" type="radio" value="Register"/>
-</label>
+</a>
 </div>
+
+
 </div>
 <form class="space-y-6">
 <div class="space-y-4">
@@ -95,7 +110,7 @@
                                 Sign In
                             </button>
 <div class="text-center text-sm text-gray-500 dark:text-gray-400 pt-4">
-                                Are you an employer? <a class="font-medium text-primary hover:text-primary/80" href="employer-authentification.html">Sign in here</a>
+                                Are you an employee? <a class="font-medium text-primary hover:text-primary/80" href="employee-signin.html">Sign in here</a>
 </div>
 </form>
 </div>
