@@ -108,9 +108,10 @@
     <span class="material-symbols-outlined text-xl">chevron_left</span>
   </button>
 
-  <span id="monthLabel" class="mx-2 text-slate-900 dark:text-white font-semibold text-lg text-center min-w-[11rem]">
-    October 2025
-  </span>
+  <span id="monthLabel"
+  class="mx-2 text-slate-900 dark:text-white font-semibold text-lg text-center min-w-[11rem]">
+</span>
+
 
   <button id="nextMonthBtn" class="flex-none w-9 h-9 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300" aria-label="Next month">
     <span class="material-symbols-outlined text-xl">chevron_right</span>
@@ -169,7 +170,8 @@
   const detailsRoot = document.querySelector('.bg-white.dark\\:bg-slate-900.p-6.rounded-xl') || document.querySelector('.task-details') || null;
 
   // Текущий отображаемый месяц (год и месяц: 0-11)
-  let current = new Date(2025, 9, 1); // по умолчанию October 2023 (месяц 9)
+  let current = new Date();
+  current.setDate(1); // важно: всегда первый день месяца
 
   // Форматирование названия месяца
   const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
