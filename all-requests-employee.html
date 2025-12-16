@@ -101,18 +101,63 @@
 <div class="text-slate-500 flex border-none bg-white dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
 <span class="material-symbols-outlined">search</span>
 </div>
-<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-white dark:bg-slate-800 focus:border-none h-full placeholder:text-slate-500 dark:placeholder:text-slate-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search by name or ID..." value=""/>
+<!-- Search placeholder -->
+
+<input id="searchInput" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-white dark:bg-slate-800 focus:border-none h-full placeholder:text-slate-500 dark:placeholder:text-slate-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search by name or ID..." value=""/>
+
 </div>
+
 </label>
 <div class="flex items-center gap-2">
-<button class="flex items-center gap-2 h-10 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700">
+
+<!-- Filter Btn -->
+<!-- <button id="filterBtn" class="flex items-center gap-2 h-10 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700">
 <span class="material-symbols-outlined text-base">filter_list</span>
 <span>Filter</span>
-</button>
-<button class="flex items-center gap-2 h-10 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700">
+</button> -->
+
+<!-- FILTER DROPDOWN -->
+<div class="relative">
+  <button
+    id="filterBtn"
+    class="flex items-center gap-2 h-10 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700"
+  >
+    <span class="material-symbols-outlined text-base">filter_list</span>
+    <span>Filter</span>
+  </button>
+
+  <!-- DROPDOWN -->
+  <div
+    id="filterMenu"
+    class="hidden absolute right-0 mt-2 w-40 rounded-lg bg-white dark:bg-slate-800 shadow-lg border border-slate-200 dark:border-slate-700 z-20"
+  >
+    <button data-status=""
+      class="filter-item w-full text-left px-4 py-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-700">
+      All
+    </button>
+    <button data-status="approved"
+      class="filter-item w-full text-left px-4 py-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-700">
+      Approved
+    </button>
+    <button data-status="pending"
+      class="filter-item w-full text-left px-4 py-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-700">
+      Pending
+    </button>
+    <button data-status="rejected"
+      class="filter-item w-full text-left px-4 py-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-700">
+      Rejected
+    </button>
+  </div>
+</div>
+
+
+<!-- Sort Btn -->
+<button id="sortBtn" class="flex items-center gap-2 h-10 px-4 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700">
 <span class="material-symbols-outlined text-base">swap_vert</span>
 <span>Sort</span>
 </button>
+
+
 <a 
   href="submit-newrequest-employee.html" 
   class="flex items-center gap-2 h-10 px-4 rounded-lg bg-primary text-white text-sm font-medium hover:bg-primary/90"
@@ -242,8 +287,8 @@
 </table>
 </div>
 <nav aria-label="Table navigation" class="flex items-center justify-between pt-4">
-<span class="text-sm font-normal text-slate-500 dark:text-slate-400">Showing <span class="font-semibold text-slate-900 dark:text-white">1-6</span> of <span class="font-semibold text-slate-900 dark:text-white">100</span></span>
-<ul class="inline-flex -space-x-px text-sm h-8">
+<!-- <span class="text-sm font-normal text-slate-500 dark:text-slate-400">Showing <span class="font-semibold text-slate-900 dark:text-white">1-6</span> of <span class="font-semibold text-slate-900 dark:text-white">100</span></span> -->
+<!-- <ul class="inline-flex -space-x-px text-sm h-8">
 <li>
 <a class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-slate-500 bg-white border border-slate-300 rounded-l-lg hover:bg-slate-100 hover:text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white" >Previous</a>
 </li>
@@ -265,7 +310,7 @@
 <li>
 <a class="flex items-center justify-center px-3 h-8 leading-tight text-slate-500 bg-white border border-slate-300 rounded-r-lg hover:bg-slate-100 hover:text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white" >Next</a>
 </li>
-</ul>
+</ul> -->
 </nav>
 </div>
 </div>
@@ -273,4 +318,79 @@
 </div>
 </div>
 
-</body></html>
+</body>
+
+<script>
+
+const searchInput = document.getElementById('searchInput');
+const rows = document.querySelectorAll('tbody tr');
+
+searchInput.addEventListener('input', () => {
+  const value = searchInput.value.toLowerCase();
+
+  rows.forEach(row => {
+    const rowText = row.innerText.toLowerCase();
+    row.style.display = rowText.includes(value) ? '' : 'none';
+  });
+});
+
+</script>
+
+<script>
+let sortAsc = true;
+const sortBtn = document.getElementById('sortBtn');
+const tbody = document.querySelector('tbody');
+
+sortBtn.addEventListener('click', () => {
+  const rowsArray = Array.from(tbody.querySelectorAll('tr'));
+
+  rowsArray.sort((a, b) => {
+    const dateA = new Date(a.children[3].innerText);
+    const dateB = new Date(b.children[3].innerText);
+
+    return sortAsc ? dateA - dateB : dateB - dateA;
+  });
+
+  sortAsc = !sortAsc;
+
+  rowsArray.forEach(row => tbody.appendChild(row));
+});
+</script>
+
+<script>
+const filterBtn = document.getElementById('filterBtn');
+const filterMenu = document.getElementById('filterMenu');
+const rowss = document.querySelectorAll('tbody tr');
+
+/* открыть / закрыть */
+filterBtn.addEventListener('click', () => {
+  filterMenu.classList.toggle('hidden');
+});
+
+/* закрыть при клике вне */
+document.addEventListener('click', (e) => {
+  if (!filterBtn.contains(e.target) && !filterMenu.contains(e.target)) {
+    filterMenu.classList.add('hidden');
+  }
+});
+
+/* фильтрация */
+document.querySelectorAll('.filter-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const status = item.dataset.status;
+
+    rows.forEach(row => {
+      const rowStatus = row.children[4].innerText.toLowerCase();
+      row.style.display =
+        !status || rowStatus.includes(status) ? '' : 'none';
+    });
+
+    filterMenu.classList.add('hidden');
+  });
+});
+</script>
+
+
+
+
+</html>
